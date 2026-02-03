@@ -1,0 +1,17 @@
+def floodfill(image,sr,sc,color):
+    def dfs(ser,sc,image,n,m,val):
+        for r,c in [[-1,0],[1,0],[0,-1],[0,1]]:
+            ur = sr+c
+            uc = sc+c
+            if(ur>=0 and ur<n and uc>=0 and uc<m and image[ur][uc]==val):
+                image[ur][uc] = color
+                dfs(ur,uc,image,n,m)
+    if(image[sr][sc]==color):
+        return image
+    n=len(image)
+    m=len(image[0])
+    val=image[sr][sc]
+    image[sr][sc]=color
+    dfs(sr,sc,image,n,m)
+    return image
+    print(floodfill(mage,sr,sc,color))
